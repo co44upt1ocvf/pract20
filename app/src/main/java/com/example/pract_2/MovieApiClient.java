@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieApiClient {
     private static final String BASE_URL = "https://kinopoiskapiunofficial.tech/";
-    private static final String API_TOKEN = "a3104a64-1786-4d8c-92eb-806acf986d20"; // Замените на ваш токен
+    private static final String API_TOKEN = "a3104a64-1786-4d8c-92eb-806acf986d20";
 
     private KinopoiskApi apiService;
 

@@ -27,33 +27,27 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Пример поиска фильма по ID
         movieApiClient.getMovieById(1, new MovieApiClient.MovieCallback() {
             @Override
             public void onSuccess(MovieResponse movie) {
-                // Отобразите информацию о фильме
                 Toast.makeText(MainActivity.this, "Movie found: " + movie.getName(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(String errorMessage) {
-                // Отобразите сообщение об ошибке
                 Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Пример поиска фильмов по ключевому слову
         movieApiClient.searchMovies("matrix", new MovieApiClient.MovieListCallback() {
             @Override
             public void onSuccess(List<MovieResponse> movies) {
-                // Отобразите список фильмов
                 movieAdapter = new MovieAdapter(movies);
                 recyclerView.setAdapter(movieAdapter);
             }
 
             @Override
             public void onError(String errorMessage) {
-                // Отобразите сообщение об ошибке
                 Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
             }
         });
